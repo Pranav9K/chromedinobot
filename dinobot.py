@@ -1,24 +1,24 @@
 import pyautogui
 import time
 
+def detect_obstacle():
+    pixel = pyautogui.pixel(286, 475)
+    if pixel == (83, 83, 83) or pixel == (172, 172, 172):
+        return True
+    else:
+        return False
 
-target_coordinate = (286, 475)  
-target_color = (83, 83, 83)  
+def jump():
+    pyautogui.press('space')
 
-
-def is_target_color(coord):
-    actual_color = pyautogui.pixel(coord[0], coord[1])
-    return actual_color == target_color
-
-
-try:
+def main():
+    print("Automated Chrome Dino Game is starting in 3 seconds...")
+    time.sleep(3)
     while True:
-        if is_target_color(target_coordinate):
-            pyautogui.press('space')
-            print("Space key pressed!")
-            time.sleep(0.01) 
-except KeyboardInterrupt:
-    print("Script terminated by user.")
+        if detect_obstacle():
+            jump()
 
+if __name__ == "__main__":
+    main()
 
 
