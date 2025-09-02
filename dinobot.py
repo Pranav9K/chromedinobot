@@ -2,7 +2,7 @@ import pyautogui
 import time
 
 def detect_obstacle():
-    pixel = pyautogui.pixel(286, 475)
+    pixel = pyautogui.pixel(830, 302)
     if pixel == (83, 83, 83) or pixel == (172, 172, 172):
         return True
     else:
@@ -20,5 +20,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
